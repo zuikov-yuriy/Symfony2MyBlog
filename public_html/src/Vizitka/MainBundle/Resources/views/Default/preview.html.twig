@@ -1,0 +1,16 @@
+{% extends 'VizitkaMainBundle:Default:index.html.twig' %}
+
+
+{% block content %}
+
+            {% for c in content %}
+               <a href="/{{ c.url|raw }}"><b><h2>{{ c.title|raw }}</h2></b></a>
+              {{ c.preview|raw }} <br>
+              <br>
+            {% endfor %} 
+
+
+{{ pagerfanta|raw }} 
+              
+{% endblock %}
+

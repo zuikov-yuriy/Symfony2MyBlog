@@ -1,0 +1,34 @@
+{% extends 'VizitkaMainBundle:Default:base.html.twig' %}
+ {% block body %}
+    <div class="adm-menu">
+    <span><a href="/admin">Админка</a></span>
+    <span><a href="/admin/module/">Модуль</a></span>
+    <span><a href="/admin/page/">Страницы</a></span>
+    <span><a href="/admin/article/">Статьи</a></span>
+    <span class="right"><a href="/" target="_blank">просмотр</a></span>
+    </div>
+
+
+
+
+<div class="left width400">
+    <div class="t">Выберите модуль</div><br>
+    <form action="{{ path('module_new') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+            <input type="submit" value="Создать" />
+     </form>
+</div>
+
+
+
+    <div class="left width580">
+        <div class="t">Настройки</div><br>
+        
+            
+       
+
+    </div>
+
+
+
+ {% endblock %}

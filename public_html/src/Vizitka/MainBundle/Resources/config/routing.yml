@@ -1,0 +1,12 @@
+vizitka_main_homepage:
+    pattern:  /
+    defaults: { _controller: VizitkaMainBundle:Default:index }
+    
+page_main:
+    pattern:  /{page_name}/
+    defaults: { _controller: VizitkaMainBundle:Default:page  }
+    
+pages_main:
+    pattern:  /{page_name}/{page}/
+    defaults: { _controller: VizitkaMainBundle:Default:page }
+    

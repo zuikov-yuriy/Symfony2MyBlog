@@ -1,0 +1,64 @@
+{% extends 'VizitkaMainBundle:Default:base.html.twig' %}
+
+{% block body %}
+{% set menus = ''|menu('')|raw %}
+
+<div class="top">
+    
+    <div>
+        <div style="float: left;">
+             <div class="userName">   
+                {% if is_granted('ROLE_USER') %} 
+                 <a href="/profile/edit/">{{ app.security.getToken().getUser().getUsername() }}</a>
+                {% endif %}
+             </div>
+        </div>
+         <div style='float: right;'>
+              {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                     <a href="/logout/">Выход</a>
+                {% else %}
+                     <a href="/register/">Регистрация</a>
+                     <a href="/login/">Вход</a>
+                {% endif %}  
+        </div>
+            <br style="clear: both;">
+    </div> 
+
+    <div class="logo">  
+       {{ logo|raw }}
+    </div>
+    <br><br><br><br>
+
+
+        <div class="main-menu">        
+            {% for m in menus %}
+                {% if m['position'] == 'top' %}
+                  <span><a class = "{{ m['style']['class'] }}" id = "{{m['style']['id']}}" href="/{{m['url']}}">{{m['name']}}</a></span>
+                {% endif %} 
+            {% endfor %} 
+         </div>
+
+</div>
+
+<div class="middle">
+
+         <div class="left">
+           {% for m in menus %}
+                {% if m['position'] == 'left' %}
+                  <span><a class = "{{ m['style']['class'] }}" id = "{{m['style']['id']}}" href="/{{m['url']}}">{{m['name']}}</a></span>
+                {% endif %} 
+            {% endfor %}
+         </div>  
+
+    
+          <div class="content border">   
+                {%block content%}
+                {%endblock%}
+          </div>  
+    
+
+                <br style="clear: both;"/>       
+</div>
+
+{% endblock %}
+

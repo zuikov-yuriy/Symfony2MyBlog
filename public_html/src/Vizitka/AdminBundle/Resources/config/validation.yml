@@ -1,0 +1,4 @@
+Vizitka\MainBundle\Entity\Articles:
+  properties:
+          title:
+              - NotBlank: ~

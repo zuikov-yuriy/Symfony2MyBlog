@@ -1,0 +1,11 @@
+test_user:
+    pattern:  /ajax/
+    defaults: { _controller: VizitkaUserBundle:Registration:ajax }
+    
+reg_user:
+    pattern:  /ajax/reg/
+    defaults: { _controller: VizitkaUserBundle:Registration:reg }
+
+login_user:
+    pattern:  /ajax/login/
+    defaults: { _controller: VizitkaUserBundle:Registration:login}

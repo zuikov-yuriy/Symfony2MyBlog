@@ -1,0 +1,8 @@
+parameters:
+#    vizitka_main.example.class: Vizitka\MainBundle\Example
+
+services:
+#    vizitka_main.example:
+#        class: %vizitka_main.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+

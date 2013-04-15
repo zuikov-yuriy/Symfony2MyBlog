@@ -1,0 +1,42 @@
+vizitka_admin_homepage:
+    pattern:  /admin/
+    defaults: { _controller: VizitkaAdminBundle:Default:index }
+    
+module:
+    pattern:  /admin/module/
+    defaults: { _controller: VizitkaAdminBundle:Default:module }
+ 
+module_new:
+    pattern:   /admin/module_new/
+    defaults:  { _controller: VizitkaAdminBundle:Default:module }
+    
+page:
+    pattern:  /admin/page/
+    defaults: { _controller: VizitkaAdminBundle:Default:page }
+    
+
+page_new:
+    pattern:   /admin/page_new/
+    defaults:  { _controller: VizitkaAdminBundle:Default:page }
+    
+
+article:
+    pattern:   /admin/article/
+    defaults:  { _controller: VizitkaAdminBundle:Default:article}  
+    
+article_new:
+    pattern:   /admin/article/
+    defaults:  { _controller: VizitkaAdminBundle:Default:article }
+    
+article_list:
+    pattern:   /admin/article/list/
+    defaults:  { _controller: VizitkaAdminBundle:Default:article_list }
+
+article_edit_update:
+    pattern:   /admin/article/edit/
+    defaults:  { _controller: VizitkaAdminBundle:Default:article_edit }
+    
+article_edit:
+    pattern:   /admin/article/edit/{id}/
+    defaults:  { _controller: VizitkaAdminBundle:Default:article_edit }
+

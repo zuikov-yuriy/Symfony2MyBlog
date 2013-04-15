@@ -1,0 +1,42 @@
+{% extends 'VizitkaMainBundle:Default:base.html.twig' %}
+ {% block body %}
+
+    <div class="adm-menu">
+    <span><a href="/admin">Админка</a></span>
+    <span><a href="/admin/module/">Модуль</a></span>
+    <span><a href="/admin/page/">Страницы</a></span>
+    <span><a href="/admin/article/">Статьи</a></span>
+    <span class="right"><a href="/" target="_blank">просмотр</a></span>
+    </div>
+
+
+
+<div class="left width400">
+    <div class="t">Создать страницу</div><br>
+    <form action="{{ path('page_new') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+            <input type="submit" value="Создать" />
+     </form>
+</div>
+
+
+
+    <div class="left width580">
+        <div class="t">Список страниц</div><br>
+        
+            
+             
+        {% for page in p %}
+            <div class="grey">
+                Название: <b>{{ page.name }}</b><br>
+                Имя модуля: <b>{{ page.module }}</b><br>
+                Позиция: <b>{{ page.position }}</b><br>
+                url: <b>{{ page.url }}</b><br>
+            </div>
+        {% endfor %} 
+
+    </div>
+
+
+
+ {% endblock %}

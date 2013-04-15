@@ -1,0 +1,61 @@
+{% extends 'VizitkaMainBundle:Default:base.html.twig' %}
+ {% block body %}
+
+    <div class="adm-menu">
+    <span><a href="/admin">Админка</a></span>
+    <span><a href="/admin/module/">Модуль</a></span>
+    <span><a href="/admin/page/">Страницы</a></span>
+    <span><a href="/admin/article/">Статьи</a></span>
+    <span class="right"><a href="/" target="_blank">просмотр</a></span>
+    </div>
+
+
+
+
+
+<div>
+    <div><a href="/admin/article/list/">Список статей</a></div>
+    <div class="t"><center>Редактирование статьи</center></div><br>
+    <form action="{{ path('article_edit_update') }}" method="post" {{ form_enctype(form) }}>
+      {{ form_errors(form) }}
+            
+       <div>
+        {{ form_errors(form.id) }}
+        {{ form_widget(form.id) }}
+      </div>
+
+      <div>
+        {{ form_label(form.title) }}
+        {{ form_errors(form.title) }}
+        {{ form_widget(form.title) }}
+      </div>
+            
+       <div style="display:none;">
+        {{ form_label(form.preview) }}
+        {{ form_errors(form.preview) }}
+        {{ form_widget(form.preview) }}
+      </div>  
+            
+       <div>
+        {{ form_label(form.article) }}
+        {{ form_errors(form.article) }}
+        {{ form_widget(form.article) }}
+        <!-- <textarea class= "form_article" style="width: 980px; height: 400px;" id="form_article" name="form[article]" >article_edit.article</textarea> -->
+        <a style="float: right;" href="javascript:;" onclick="tinyMCE.execCommand('mceInsertContent',false,'<hr /><hr /><hr />');return false;">Подробнее</a><br><br>
+      </div>     
+            
+      <div >
+        {{ form_label(form.page_id) }}
+        {{ form_errors(form.page_id) }}
+        {{ form_widget(form.page_id) }}
+      </div>  
+            
+           
+        {{ form_widget(form._token) }}
+        <input type="submit" value="Обновить" />
+      </form>
+     </div>
+
+
+
+ {% endblock %}
