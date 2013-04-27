@@ -54,22 +54,28 @@
 	});
 </script>
 </head>
-    <body>
-   
-        <div class="body">
-                     
-            
-        {% set logo =  '<a href="/"><img src="/images/logo.png" alt="Symfony"></a>' %}
-      
-        {% block body %}
-        {% endblock %}
-                
+<body>   
+{% set menus = ''|menu('')|raw %}  
+{% set logo =  '<a href="/"><img src="/images/logo.png" alt="Symfony"></a>' %} 
+    
+    <div class="wrapper">
+        
+        <div class="top">
+            {% include 'VizitkaMainBundle:Default:top/top.html.twig' %}
         </div>
-        <br style="clear: both;">
-        
-        <div class="footer">
-            <center><br><br><br><br></center>
-        </div> 
-        
-    </body>
+
+        <div class="middle">
+           <div style="height: 20px;"></div>
+          {%block middle%}{%endblock%}
+        </div>
+                    
+    <div class="footer-push"></div>
+    </div>  
+
+    <div class="footer">
+      {% include 'VizitkaMainBundle:Default:footer/footer.html.twig' %}
+    </div>
+    
+   
+</body>
 </html>

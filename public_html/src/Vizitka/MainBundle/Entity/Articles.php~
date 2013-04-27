@@ -156,4 +156,27 @@ class Articles
     {
         return $this->url;
     }
+
+    /**
+     * Set preview
+     *
+     * @param string $preview
+     * @return Articles
+     */
+    public function setPreview($preview)
+    {
+        $this->preview = $preview;
+    
+        return $this;
+    }
+
+    /**
+     * Get preview
+     *
+     * @return string 
+     */
+    public function getPreview()
+    {
+        return $this->preview;
+    }
 }

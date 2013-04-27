@@ -23,7 +23,7 @@ class ArticleForm extends AbstractType {
         ));
         $builder->add('preview', 'text', array('label' => 'Краткое описание'));
         $builder->add('article', 'textarea', array('label' => 'Текст статьи'));
-        $builder->add('page_id', 'choice', array('label' => 'Страница', 'choices' => $this->select()));
+        $builder->add('page_id', 'choice',  array('label' => 'Страница', 'choices' => $this->select()));
     }
 
     public function select() {

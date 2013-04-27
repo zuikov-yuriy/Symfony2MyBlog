@@ -1,10 +1,11 @@
-{% extends 'VizitkaMainBundle:Default:index.html.twig' %}
+{% extends 'VizitkaMainBundle:Default:middle/middle.html.twig' %}
 
 {% block content %}
-
+{{tree|raw}}
             {% for c in content %}
               {{ c.article|raw }} <br><br>
+               <br style="clear: both;"/> 
             {% endfor %} 
-        
+       
  {% endblock %}
 

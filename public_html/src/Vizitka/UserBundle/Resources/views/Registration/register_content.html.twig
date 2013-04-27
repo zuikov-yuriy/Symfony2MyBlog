@@ -1,6 +1,12 @@
+<div style="text-align: center; font-size: 20px;">Регистрация</div><br>
+
+<div style="width: 230px; margin: 0 auto;">
+
 <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
     {{ form_widget(form) }}
     <div>
         <input type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" />
     </div>
 </form>
+    
+</div>

@@ -1,3 +1,4 @@
+
 test_user:
     pattern:  /ajax/
     defaults: { _controller: VizitkaUserBundle:Registration:ajax }

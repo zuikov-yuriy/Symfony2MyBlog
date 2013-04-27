@@ -24,12 +24,24 @@ class Pages {
      */
     private $id;
 
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="parent", type="integer", length=255)
+     */
+    private $parent;
+    
+    
     /**
      * @var string
      *
      * @ORM\Column(name="module", type="string", length=255)
      */
     private $module;
+    
+    
+
     
     /**
      * @var string
@@ -174,5 +186,28 @@ class Pages {
     public function getModule()
     {
         return $this->module;
+    }
+
+    /**
+     * Set parent
+     *
+     * @param integer $parent
+     * @return Pages
+     */
+    public function setParent($parent)
+    {
+        $this->parent = $parent;
+    
+        return $this;
+    }
+
+    /**
+     * Get parent
+     *
+     * @return integer 
+     */
+    public function getParent()
+    {
+        return $this->parent;
     }
 }

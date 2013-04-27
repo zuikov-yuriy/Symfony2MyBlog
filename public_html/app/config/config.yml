@@ -86,11 +86,11 @@ services:
             - { name: templating.helper, alias: tracker }
 
 
-    vizitka_admin.registration.form.type:
-        class: Vizitka\AdminBundle\Form\Type\RegistrationFormType
+    vizitka_user.registration.form.type:
+        class: Vizitka\UserBundle\Form\Type\RegistrationFormType
         arguments: [%fos_user.model.user.class%]
         tags:
-            - { name: form.type, alias: vizitka_admin_registration }
+            - { name: form.type, alias: vizitka_user_registration }
 
 
 knp_paginator:
@@ -111,7 +111,7 @@ fos_user:
     user_class: Vizitka\MainBundle\Entity\User
     registration:
          form:
-            type: vizitka_admin_registration   
+            type: vizitka_user_registration   
          confirmation: 
             from_email: 
                 address: yuriy.zuikov@gmail.com 
@@ -127,8 +127,8 @@ swiftmailer:
     encryption: ssl
     auth_mode:  login
     host:       smtp.gmail.com
-    username:   user.name@gmail.com
-    password:   pass
+    username:   noreply.login.pass@gmail.com
+    password:   1qaz2wsx3edc4
     port: 465
         
             

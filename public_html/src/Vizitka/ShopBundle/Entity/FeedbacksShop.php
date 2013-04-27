@@ -1,0 +1,184 @@
+<?php
+
+namespace Vizitka\ShopBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * FeedbacksShop
+ *
+ * @ORM\Table()
+ * @ORM\Entity
+ */
+class FeedbacksShop
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="datetime")
+     */
+    private $date;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ip", type="string", length=50)
+     */
+    private $ip;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="message", type="text")
+     */
+    private $message;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     * @return FeedbacksShop
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+    
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime 
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set ip
+     *
+     * @param string $ip
+     * @return FeedbacksShop
+     */
+    public function setIp($ip)
+    {
+        $this->ip = $ip;
+    
+        return $this;
+    }
+
+    /**
+     * Get ip
+     *
+     * @return string 
+     */
+    public function getIp()
+    {
+        return $this->ip;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return FeedbacksShop
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return FeedbacksShop
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string 
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set message
+     *
+     * @param string $message
+     * @return FeedbacksShop
+     */
+    public function setMessage($message)
+    {
+        $this->message = $message;
+    
+        return $this;
+    }
+
+    /**
+     * Get message
+     *
+     * @return string 
+     */
+    public function getMessage()
+    {
+        return $this->message;
+    }
+}

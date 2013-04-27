@@ -1,0 +1,42 @@
+{% extends 'VizitkaShopBundle:Default:base.html.twig' %}
+
+{%block middle%}
+
+
+<div id="middle">
+    
+    <div class="border left">
+     {%block content%}
+            {% for p in product %}
+                          {{ p.url }}
+            {% endfor %} 
+     {%endblock%}
+    </div>
+    
+    
+    <div class=" right">
+             <div class="bm">
+                <div class="name">
+                    Меню
+                </div>
+            </div>
+                               <br><br>
+
+
+                               
+             <div class="bm">
+                <div class="name">
+                   Корзина
+                </div>
+                <div class="body">  
+                </div>
+            </div>
+
+    </div>
+    <br style="clear: both;">    
+    
+</div>
+
+
+
+{%endblock%}

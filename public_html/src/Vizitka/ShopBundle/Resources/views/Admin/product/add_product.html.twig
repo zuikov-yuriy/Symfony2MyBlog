@@ -1,0 +1,28 @@
+{% extends 'VizitkaShopBundle:Admin:base.html.twig' %}
+
+ {% block body %}
+
+    <div class="adm-menu">
+    <span><a href="/shop/admin/">Админка</a></span>
+    <span><a href="/shop/admin/products/">Товары</a></span>
+    <span><a href="/shop/admin/categories/">Категории</a></span>
+    <span><a href="/shop/admin/brands/">Бренды</a></span>
+    <span><a href="/shop/admin/features/">Свойства</a></span>
+    <span><a href="/shop/admin/orders/">Заказы</a></span>
+    <span><a href="/shop/admin/settings/">Настройки</a></span>
+    <span class="right"><a href="/shop/" target="_blank">магазин</a></span>
+    </div>
+
+
+<div>
+
+    <form action="{{ path('shop_add_products') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+            <input type="submit" value="Создать" />
+     </form>
+    
+</div>
+
+
+
+ {% endblock %}

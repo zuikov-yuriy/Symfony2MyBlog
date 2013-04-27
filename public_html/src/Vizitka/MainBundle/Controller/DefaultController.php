@@ -4,6 +4,7 @@ namespace Vizitka\MainBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Vizitka\MainBundle\Helper\Help;
+use Vizitka\MainBundle\Helper\Tree;
 
 
 class DefaultController extends Controller {
@@ -13,12 +14,21 @@ class DefaultController extends Controller {
     }
 
     public function indexAction($page = null) {  
+ 
+        $repository = $this->getDoctrine()->getRepository('VizitkaMainBundle:Pages');
+        $items = $repository->findAll();
+        
+        $tree = new Tree();
+        $html = $tree->listarray($items);
+      
+     
+        
         $p = $this->page('');
-                
         return $this->render('VizitkaMainBundle:Default:main.html.twig', array(
                     'name' => $p->getName(),
                     'content' => $this->content($p->getId()),
                     'id' => $page,
+                    'tree'=> $html,
                          ));
     }
 
@@ -53,12 +63,14 @@ class DefaultController extends Controller {
             $help = new Help();
             $routeName = $this->container->get('request')->get('page_name');   
             $pagination = $help->pagination($page, $results, $routeName);
-
+            
+            if (count($pagination['entities']) == '0') $pagination['html'] = '';
+            
             return $this->render('VizitkaMainBundle:Default:preview.html.twig', array(
                         'name' => $pages["name"],
                         'content' => $pagination['entities'],
                         'id' => $page,
-                        'pagerfanta' => $pagination ['html'],
+                        'pagerfanta' => $pagination['html'],
                     ));
         } else {
 

@@ -1,0 +1,33 @@
+{% extends 'VizitkaMainBundle:Default:base.html.twig' %}
+
+{%block middle%}
+
+
+<div id="middle">
+    
+    <div class="border left">
+     {%block content%}
+     {%endblock%}
+    </div>
+    
+    
+    <div class="bm right">
+        <div style="  background-image: url(/images/fon.png);  width: 286px; height: 30px; text-align: center; line-height: 30px; font-size: 25px; color: #56a;">
+            Меню
+        </div>
+           {% for m in menus %}
+                {% if m['position'] == 'left' %}
+                  <li style="margin-left:10px;">
+                      <a class = "{{ m['style']['class'] }}" id = "{{m['style']['id']}}" href="/{{m['url']}}">{{m['name']}}</a>
+                  </li>
+                {% endif %} 
+            {% endfor %}
+    </div>
+  
+    <br style="clear: both;">    
+    
+</div>
+
+
+
+{%endblock%}

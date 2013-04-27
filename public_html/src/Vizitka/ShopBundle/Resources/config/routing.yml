@@ -1,0 +1,114 @@
+shop_admin:
+    pattern:  /shop/admin/
+    defaults: { _controller: VizitkaShopBundle:Admin:index }
+   
+    
+    
+    
+    
+    
+shop_products:
+    pattern:  /shop/admin/products/
+    defaults: { _controller: VizitkaShopBundle:Admin:products }
+    
+shop_products_page:
+    pattern:  /shop/admin/products/{page}/
+    defaults: { _controller: VizitkaShopBundle:Admin:products }
+    
+shop_add_products:
+    pattern:  /shop/admin/add_product/
+    defaults: { _controller: VizitkaShopBundle:Admin:add_product }
+
+    
+shop_product_edit:
+    pattern:  /shop/admin/edit_product/{id}/
+    defaults: { _controller: VizitkaShopBundle:Admin:edit_product}
+    
+    
+shop_product_update:
+    pattern:   /shop/admin/update_product/
+    defaults: { _controller: VizitkaShopBundle:Admin:update_product}
+    
+    
+    
+    
+    
+    
+shop_categories:
+    pattern:  /shop/admin/categories/
+    defaults: { _controller: VizitkaShopBundle:Admin:categories }
+    
+shop_add_category:
+    pattern:  /shop/admin/add_category/
+    defaults: { _controller: VizitkaShopBundle:Admin:add_category }
+
+    
+shop_category_edit:
+    pattern:  /shop/admin/edit_category/{id}/
+    defaults: { _controller: VizitkaShopBundle:Admin:edit_category}
+    
+    
+shop_category_update:
+    pattern:   /shop/admin/update_category/
+    defaults: { _controller: VizitkaShopBundle:Admin:update_category}
+
+
+
+
+
+
+
+
+
+
+
+shop_brands:
+    pattern:  /shop/admin/brands/
+    defaults: { _controller: VizitkaShopBundle:Admin:brands }
+    
+shop_add_brand:
+    pattern:  /shop/admin/add_brand/
+    defaults: { _controller: VizitkaShopBundle:Admin:add_brand }
+
+    
+shop_brand_edit:
+    pattern:  /shop/admin/edit_brand/{id}/
+    defaults: { _controller: VizitkaShopBundle:Admin:edit_brand}
+    
+    
+shop_brand_update:
+    pattern:   /shop/admin/update_brand/
+    defaults: { _controller: VizitkaShopBundle:Admin:update_brand}
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+shop_features:
+    pattern:  /shop/admin/features/
+    defaults: { _controller: VizitkaShopBundle:Admin:features }
+ 
+shop_orders:
+    pattern:  /shop/admin/orders/
+    defaults: { _controller: VizitkaShopBundle:Admin:orders }
+    
+
+ 
+
+
+shop_page_category:
+    pattern:  /{url_category}/
+    defaults: { _controller: VizitkaShopBundle:Default:index }
+    
+shop_page_product:
+    pattern:  /{url_category}/{url_product}/
+    defaults: { _controller: VizitkaShopBundle:Default:page_product }

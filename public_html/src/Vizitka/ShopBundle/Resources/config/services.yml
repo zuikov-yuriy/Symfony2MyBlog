@@ -1,0 +1,7 @@
+parameters:
+#    vizitka_shop.example.class: Vizitka\ShopBundle\Example
+
+services:
+#    vizitka_shop.example:
+#        class: %vizitka_shop.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

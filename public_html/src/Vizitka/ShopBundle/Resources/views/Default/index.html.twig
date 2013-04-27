@@ -1,0 +1,53 @@
+{% extends 'VizitkaShopBundle:Default:base.html.twig' %}
+
+{%block middle%}
+
+
+<div id="middle">
+    
+    <div class="border left">
+     {%block content%}
+            {% for category in categories %}
+                            <a href="/{{ category.url }}/">{{ category.name }}</a>
+            {% endfor %} 
+     {%endblock%}
+    </div>
+    
+    
+    <div class=" right">
+             <div class="bm">
+                <div class="name">
+                    Меню
+                </div>
+            </div>
+                               <br><br>
+
+             <div class="bm">
+                <div class="name">
+                    Все брэнды
+                </div>
+                     <div style="padding:5px;">
+                          {% for brand in brands %}
+                            <a href="/brand/{{ brand.url }}/">{{ brand.name }}</a>
+                         {% endfor %} 
+                     </div>
+            </div>
+
+                               <br><br>
+                               
+             <div class="bm">
+                <div class="name">
+                   Корзина
+                </div>
+                <div class="body">  
+                </div>
+            </div>
+
+    </div>
+    <br style="clear: both;">    
+    
+</div>
+
+
+
+{%endblock%}

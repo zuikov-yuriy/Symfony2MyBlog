@@ -1,0 +1,58 @@
+
+
+<div class="b-line top-line">
+    <div  style="    width: 980px;margin: 0 auto;  ">
+        
+                <div style="float: left;">
+
+                     <div class="userName">   
+ 
+                        {% if is_granted('ROLE_USER') %} 
+                         &nbsp;&nbsp;Вы вошли как <a href="/profile/edit/">{{ app.security.getToken().getUser().getUsername() }}</a>
+                                 {% if is_granted('ROLE_ADMIN') %}
+                                  {% include 'VizitkaMainBundle:Default:top/admin.html.twig' %}
+                                 {% endif %}
+                        {% endif %}
+
+                     </div>
+                </div>
+                 <div style='float: right;'>
+                      {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                             <a href="/logout/">Выход</a>&nbsp;&nbsp;
+                        {% else %}
+                             <a href="/register/">Регистрация</a>
+                             <a href="/login/">Вход</a>
+                        {% endif %}  
+                </div>
+                    <br style="clear: both;">
+            
+     </div>
+  </div>
+
+
+
+<div id="top">
+    
+  <div class="top-center">  
+    <div class="logo">  
+       TECHNICA
+    </div> 
+  </div>
+    
+</div>  
+    
+    
+
+
+
+  <div class="b top-menu">  
+      <div>
+        {% for m in menus %}
+                        {% if m['position'] == 'top' %}
+                          <span><a class = "{{ m['style']['class'] }}" id = "{{m['style']['id']}}" href="/{{m['url']}}">{{m['name']}}</a></span>
+                        {% endif %} 
+       {% endfor %} 
+      </div>
+  </div>
+  
+  

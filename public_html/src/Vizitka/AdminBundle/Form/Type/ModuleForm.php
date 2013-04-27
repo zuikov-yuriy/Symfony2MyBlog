@@ -12,7 +12,7 @@ class ModuleForm extends AbstractType {
         $builder->add('name', 'text', array('label' => 'Имя модуля'))
                 ->add('options', 'choice', array(
                     'label' => 'Выбор модуля',
-                    'choices' => array('blog' => 'Блог', 'article' => 'Статья')
+                    'choices' => array('blog' => 'Блог', 'article' => 'Статья', 'shop' => 'Магазин')
                 ));
     }
 

@@ -1,6 +1,10 @@
 vizitka_user:
     resource: "@VizitkaUserBundle/Resources/config/routing.yml"
     prefix:   /
+
+vizitka_shop:
+    resource: "@VizitkaShopBundle/Resources/config/routing.yml"
+    prefix:   /
     
 gregwar_captcha_routing:
     resource: "@GregwarCaptchaBundle/Resources/config/routing/routing.yml"

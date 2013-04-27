@@ -1,5 +1,7 @@
-{% extends "FOSUserBundle::layout.html.twig" %}
+{% extends 'VizitkaMainBundle:Default:base.html.twig' %}
+{% set name = 'Регистрация' %}
+{% block middle %}
+    <center><p>{{ 'registration.check_email'|trans({'%email%': user.email}, 'FOSUserBundle') }}</p></center>
+{% endblock middle  %}
 
-{% block fos_user_content %}
-    <p>{{ 'registration.check_email'|trans({'%email%': user.email}, 'FOSUserBundle') }}</p>
-{% endblock fos_user_content %}
+    

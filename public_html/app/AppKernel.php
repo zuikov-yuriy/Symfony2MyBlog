@@ -26,6 +26,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
             new Vizitka\UserBundle\VizitkaUserBundle(),
+            new Vizitka\ShopBundle\VizitkaShopBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
@@ -41,4 +42,6 @@ class AppKernel extends Kernel
     {
         $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');
     }
+    
+  
 }
