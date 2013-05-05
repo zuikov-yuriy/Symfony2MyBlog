@@ -1,0 +1,82 @@
+php app/console doctrine:generate:entity --entity="VizitkaShopBundle:BrandsShop" --fields="name:string(500) url:string(255) meta_title:string(500) meta_keywords:string(500) meta_description:string(500) annotation:text text:text visible:integer(1) date:datetime"
+
+php app/console doctrine:generate:entity --entity="VizitkaShopBundle:CategoriesShop" --fields="parent_id:integer(11) name:string(255) meta_title:string(500) meta_keywords:string(500) meta_description:string(500) description:text url:string(255) image:string(255) position:integer(11) visible:smallint external_id:string(255)"
+
+php app/console doctrine:generate:entity --entity="VizitkaShopBundle:CategoriesFeaturesShop" --fields="category_id:integer(11) feature_id:integer(11)"
+
+php app/console doctrine:generate:entity --entity="VizitkaShopBundle:CommentsShop" --fields="date:datetime ip:string(50) object_id:integer(11) name:string(255) text:text type:string(255) approved:integer(11)"
+
+php app/console doctrine:generate:entity --entity="VizitkaShopBundle:CouponsShop" --fields="code:string(255) expire:datetime type:string(255) value:float min_order_price:float single:integer(11) usages:integer(11)"
+
+php app/console doctrine:generate:entity --entity="VizitkaShopBundle:CurrenciesShop" --fields="name:string(255) sign:string(20) code:smallint rate_from:float rate_to:float cents:smallint enabled:smallint"
+
+php app/console doctrine:generate:entity --entity="VizitkaShopBundle:DeliveryShop" --fields="name:string(255) description:text free_from:float price:float enabled:smallint position:integer(11) separate_payment:integer(11)"
+
+php app/console doctrine:generate:entity --entity="VizitkaShopBundle:DeliverPaymentShop" --fields="delivery_id:integer(11) payment_method_id:integer(11)"
+
+php app/console doctrine:generate:entity --entity="VizitkaShopBundle:FeaturesShop" --fields="name:string(500)"
+
+php app/console doctrine:generate:entity --entity="VizitkaShopBundle:FeedbacksShop" --fields="date:datetime ip:string(50) name:string(255) email:string(255) message:text"
+
+php app/console doctrine:generate:entity --entity="VizitkaShopBundle:GroupsShop" --fields="name:string(255) discount:float"
+
+php app/console doctrine:generate:entity --entity="VizitkaShopBundle:ImagesShop" --fields="name:string(255) product_id:integer(11) filename:string(255)"
+
+php app/console doctrine:generate:entity --entity="VizitkaShopBundle:OptionsShop" --fields="product_id:integer(11) feature_id:integer(11) value:string(255) value1:string(255) value2:string(255) value2:string(255)"
+
+php app/console doctrine:generate:entity --entity="VizitkaShopBundle:OrdersShop" --fields="delivery_id:integer(11) delivery_price:integer(11) payment_method_id:integer(11) paid:integer(11) payment_date:datetime closed:smallint date:datetime user_id:integer(11) name:string(500) address:string(500) phone:string(500) email:string(500) comment:string(1024) status:integer(11) url:string(255) payment_details:text ip:string(50) total_price:float note:string(1024) discount:float coupon_discount:float coupon_code:string(500) separate_delivery:integer(11) modified:datetime"
+
+php app/console doctrine:generate:entity --entity="VizitkaShopBundle:PagesShop" --fields="url:string(255) name:string(255) meta_title:string(500) meta_description:string(500) meta_keywords:string(500) body:text menu_id:integer(11) position:integer(11) visible:smallint header:string(1024)"
+
+php app/console doctrine:generate:entity --entity="VizitkaShopBundle:PaymentMethodsShop" --fields="module:string(255) name:string(255) description:text currency_id:float settings:text enabled:smallint position:integer(11)"
+
+php app/console doctrine:generate:entity --entity="VizitkaShopBundle:ProductsShop" --fields="url:string(255) brand_id:integer(11) name:string(255) annotation:text body:text visible:smallint position:integer(11) meta_title:string(500) meta_keywords:string(500) meta_description:string(500) created:datetime featured:smallint external_id:string(36)"
+
+php app/console doctrine:generate:entity --entity="VizitkaShopBundle:ProductsCategoriesShop" --fields="product_id:integer(11) category_id:integer(11) position:integer(11)"
+
+php app/console doctrine:generate:entity --entity="VizitkaShopBundle:PurchasesShop" --fields="order_id:integer(11) product_id:integer(11) variant_id:integer(11) product_name:string(255) variant_name:string(255) price:float amount:integer(11) sku:string(255)"
+
+php app/console doctrine:generate:entity --entity="VizitkaShopBundle:RelatedProductsShop" --fields="product_id:integer(11) related_id:integer(11) position:integer(11)"
+
+php app/console doctrine:generate:entity --entity="VizitkaShopBundle:SettingsShop" --fields="setting_id:integer(11) name:string(255) value:text"
+
+
+php app/console doctrine:generate:entity --entity="VizitkaShopBundle:VariantsShop" --fields="product_id:integer(11) sku:string(255) name:string(255) price:float compare_price:float stock:smallint position:integer(11) attachment:string(255) external_id:string(36)"
+
+
+
+
+
+
+php app/console doctrine:generate:entity --entity="VizitkaShopBundle:BrandsShop" --fields="name:string(500) url:string(255) meta_title:string(500) meta_keywords:string(500) meta_description:string(500) description:text image:string(255) visible:boolean"
+
+
+php app/console doctrine:generate:entity --entity="VizitkaShopBundle:CategoriesShop" --fields="parent_id:integer(11) name:string(255) meta_title:string(500) meta_keywords:string(500) meta_description:string(500) description:text url:string(255) image:string(255) visible:smallint"
+
+php app/console doctrine:generate:entity --entity="VizitkaShopBundle:ProductsShop" --fields="url:string(255) brand_id:integer(11) category_id:integer(11) name:string(255) price:float sku:string(255) annotation:text body:text visible:boolean meta_title:string(500) meta_keywords:string(500) meta_description:string(500) created:datetime featured:smallint"
+
+
+
+
+
+
+
+
+
+
+bool
+
+nullable=false
+
+  public function updateFromArray($params) { 
+        foreach ($params as $key => $val) 
+            if (isset($this->$key))
+                { $this->$key = $val; } 
+   }
+
+
+
+
+
+
+

@@ -1,16 +1,16 @@
 <?php
 
-namespace Vizitka\ShopBundle\Entity;
-
+namespace Vizitka\MainBundle\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * FeaturesShop
+ * Category
  *
  * @ORM\Table()
  * @ORM\Entity
  */
-class FeaturesShop
+class Category
 {
     /**
      * @var integer
@@ -24,21 +24,20 @@ class FeaturesShop
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=500)
+     * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
+    
+      /**
+     * @ORM\OneToMany(targetEntity="Product", mappedBy="category")
+     */
+protected $products;
 
+    public function __construct()
+    {
+        $this->products = new ArrayCollection();
+    }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     /**
      * Get id
      *
@@ -53,7 +52,7 @@ class FeaturesShop
      * Set name
      *
      * @param string $name
-     * @return FeaturesShop
+     * @return Category
      */
     public function setName($name)
     {

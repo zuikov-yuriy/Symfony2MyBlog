@@ -80,8 +80,13 @@ class ProductForm extends AbstractType {
         $builder->add('featured', 'text', array('label' => 'Характеристики',
                                                 'attr' => array("class" => "featured_form_product"),
                                                 'label_attr' => array('class' => 'featured_label_product')));  
+    
         
-  
+  $builder->add('type','collection', array( 'type' =>  new ProductImageForm(),
+                                              'allow_add' => true,
+                                              'prototype' => true,
+                                              'by_reference' => false,
+                                              ));
  
     }
 
@@ -96,6 +101,14 @@ class ProductForm extends AbstractType {
         return $PageSelect;
     }
 
+    
+     public function getDefaultOptions(array $options)
+    {
+        return array(
+            'data_class' => 'Vizitka\ShopBundle\Entity\ProductsShop',
+        );
+    }
+    
     public function getName() {
         return 'product_form';
     }

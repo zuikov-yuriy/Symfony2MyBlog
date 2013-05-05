@@ -1,7 +1,7 @@
 <?php
 
 namespace Vizitka\ShopBundle\Entity;
-
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -119,7 +119,17 @@ class ProductsShop
      */
     private $featured;
 
+      /**
+     * @ORM\OneToMany(targetEntity="ImagesShop", mappedBy="product")
+     */
+    protected $images;
 
+  
+    
+    public function __construct()
+    {
+        $this->images = new ArrayCollection();
+    }
     /**
      * Get id
      *
@@ -457,4 +467,38 @@ class ProductsShop
                 { $this->$key = $val; } 
    }
 
+
+    /**
+     * Add images
+     *
+     * @param \Vizitka\ShopBundle\Entity\ImagesShop $images
+     * @return ProductsShop
+     */
+    public function addImage(\Vizitka\ShopBundle\Entity\ImagesShop $images)
+    {
+        $this->images[] = $images;
+    
+        return $this;
+    }
+
+    /**
+     * Remove images
+     *
+     * @param \Vizitka\ShopBundle\Entity\ImagesShop $images
+     */
+    public function removeImage(\Vizitka\ShopBundle\Entity\ImagesShop $images)
+    {
+        $this->images->removeElement($images);
+    }
+
+    /**
+     * Get images
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getImages()
+    {
+        return $this->images;
+    }
+    
 }

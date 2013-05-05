@@ -4,17 +4,12 @@ namespace Vizitka\ShopBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Bridge\Doctrine\RegistryInterface;
+
 
 
 class ProductImageForm extends AbstractType {
 
-    private $doctrine;
 
-    public function __construct(RegistryInterface $doctrine) {
-        $this->doctrine = $doctrine;
-     
-    }
 
     public function buildForm(FormBuilderInterface $builder, array $options) {
  
@@ -27,7 +22,13 @@ class ProductImageForm extends AbstractType {
  
     }
 
-
+ public function getDefaultOptions(array $options)
+    {
+        return array(
+            'data_class' => 'Vizitka\ShopBundle\Entity\ImagesShop',
+        );
+    }
+    
     public function getName() {
         return 'image_form';
     }

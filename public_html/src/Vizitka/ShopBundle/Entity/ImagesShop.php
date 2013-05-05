@@ -29,20 +29,20 @@ class ImagesShop
     private $name;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="product_id", type="integer", length=11)
-     */
-    private $product_id;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="filename", type="string", length=255)
      */
     private $filename;
 
-
+    /**
+     * 
+     * @ORM\ManyToOne(targetEntity="ProductsShop", inversedBy="images")
+     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
+     */
+    protected $product;
+    
+    
     /**
      * Get id
      *
@@ -127,4 +127,27 @@ class ImagesShop
             if (isset($this->$key))
                 { $this->$key = $val; } 
    }
+
+    /**
+     * Set product
+     *
+     * @param \Vizitka\ShopBundle\Entity\ProductsShop $product
+     * @return ImagesShop
+     */
+    public function setProduct(\Vizitka\ShopBundle\Entity\ProductsShop $product = null)
+    {
+        $this->product = $product;
+    
+        return $this;
+    }
+
+    /**
+     * Get product
+     *
+     * @return \Vizitka\ShopBundle\Entity\ProductsShop 
+     */
+    public function getProduct()
+    {
+        return $this->product;
+    }
 }

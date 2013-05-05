@@ -7,9 +7,8 @@
     
     <div class="border left">
      {%block content%}
-            {% for p in product %}
-                          {{ p.url }}
-            {% endfor %} 
+            {{product['name']}} <br>  
+             <img src="/images/shop/product/{{product['filename']|default('non.jpg')}}" /> 
      {%endblock%}
     </div>
     

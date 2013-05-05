@@ -1,16 +1,16 @@
 <?php
 
-namespace Vizitka\ShopBundle\Entity;
+namespace Vizitka\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ImagesShop
+ * Product
  *
  * @ORM\Table()
  * @ORM\Entity
  */
-class ImagesShop
+class Product
 {
     /**
      * @var integer
@@ -29,18 +29,24 @@ class ImagesShop
     private $name;
 
     /**
-     * @var string
+     * @var float
      *
-     * @ORM\Column(name="filename", type="string", length=255)
+     * @ORM\Column(name="price", type="float")
      */
-    private $filename;
+    private $price;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ProductsShop", inversedBy="images")
-     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text")
      */
-    protected $product;
-    
+    private $description;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     */
+    protected $category;
     /**
      * Get id
      *
@@ -55,7 +61,7 @@ class ImagesShop
      * Set name
      *
      * @param string $name
-     * @return ImagesShop
+     * @return Product
      */
     public function setName($name)
     {
@@ -75,54 +81,48 @@ class ImagesShop
     }
 
     /**
-     * Set product_id
+     * Set price
      *
-     * @param integer $productId
-     * @return ImagesShop
+     * @param float $price
+     * @return Product
      */
-    public function setProductId($productId)
+    public function setPrice($price)
     {
-        $this->product_id = $productId;
+        $this->price = $price;
     
         return $this;
     }
 
     /**
-     * Get product_id
+     * Get price
      *
-     * @return integer 
+     * @return float 
      */
-    public function getProductId()
+    public function getPrice()
     {
-        return $this->product_id;
+        return $this->price;
     }
 
     /**
-     * Set filename
+     * Set description
      *
-     * @param string $filename
-     * @return ImagesShop
+     * @param string $description
+     * @return Product
      */
-    public function setFilename($filename)
+    public function setDescription($description)
     {
-        $this->filename = $filename;
+        $this->description = $description;
     
         return $this;
     }
 
     /**
-     * Get filename
+     * Get description
      *
      * @return string 
      */
-    public function getFilename()
+    public function getDescription()
     {
-        return $this->filename;
+        return $this->description;
     }
-    
-          public function updateFromArray($params) { 
-        foreach ($params as $key => $val) 
-            if (isset($this->$key))
-                { $this->$key = $val; } 
-   }
 }

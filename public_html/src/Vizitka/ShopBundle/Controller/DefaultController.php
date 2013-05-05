@@ -4,12 +4,6 @@ namespace Vizitka\ShopBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
- use Symfony\Component\HttpFoundation\Request,
-    Vizitka\ShopBundle\Entity\ProductsShop,
-    Vizitka\ShopBundle\Entity\ImagesShop,
-    Vizitka\ShopBundle\Entity\CategoriesShop,
-    Vizitka\ShopBundle\Entity\BrandsShop;
-
 class DefaultController extends Controller {
 
     public function indexAction($url_category = 'shop') {
@@ -32,43 +26,44 @@ class DefaultController extends Controller {
 
     public function page_category($url_category) {
         $em = $this->getDoctrine()->getEntityManager();
-        $query = $em->createQuery("SELECT p FROM VizitkaShopBundle:ProductsShop p WHERE p.id IN (SELECT c.id FROM VizitkaShopBundle:CategoriesShop c WHERE c.url = '$url_category')");
+        $query = $em->createQuery("SELECT p FROM VizitkaShopBundle:ProductsShop p WHERE p.category_id IN (SELECT c.id FROM VizitkaShopBundle:CategoriesShop c WHERE c.url = '$url_category')");
         $products = $query->getResult();
+
+             foreach ($products as $product){
+                 $a['name'] = $product->getName();
+                 $a['url'] = $product->getUrl();
+                foreach ($product->getImages() as $img){
+                   $a['filename'] = $img->getFilename(); 
+                }
+                if(isset($a)){
+                     $array_products[] = $a;          
+                  }
+               unset($a);  
+            }
+        
+        
         return $this->render('VizitkaShopBundle:Default:products.html.twig', array(
-                    'products' => $products,
+                    'products' => $array_products,
                     'url_category'=> $url_category,
                     'name' => 'Продукты'));
     }
 
     public function page_productAction($url_product) {
-//       $em = $this->getDoctrine()->getEntityManager();
-//       $query = $em->createQuery("SELECT p FROM VizitkaShopBundle:ProductsShop p WHERE p.url = '$url_product'");
-//       $product = $query->getResult();
+        $products = $this->getDoctrine()->getRepository('VizitkaShopBundle:ProductsShop')->findBy( array('url'=>$url_product));
+        foreach ($products as $p){
+             $product['name'] = $p->getName();
+            foreach ($p->getImages() as $img){
+               $product['filename'] = $img->getFilename(); 
+            }
 
-//        $conn = $this->get('database_connection');
-//        $pages = $conn->fetchAssoc('SELECT ProductsShop.*, ImagesShop.filename FROM ProductsShop LEFT JOIN ImagesShop ON ProductsShop.id = ImagesShop.product_id WHERE ProductsShop.url = "'.$url_product.'"');
-//        var_dump($pages);
-
-        
-        
-//
-//
-//       $em = $this->getDoctrine()->getEntityManager();
-//       $qb = $em->createQueryBuilder()
-//                            ->select('p, i')
-//                            ->from('VizitkaShopBundle:ProductsShop ', 'p')
-//                            ->leftJoin('VizitkaShopBundle:ProductsShop', 'i')
-//                            ->groupBy('p');
-//
-//        $product = $qb->getQuery()->getResult();
-       
- 
-
-    
-    
+        }
         return $this->render('VizitkaShopBundle:Default:product.html.twig', array(
                     'product' => $product,
                     'name' => 'Продукт'));
     }
 
+    
+    
+    
+    
 }

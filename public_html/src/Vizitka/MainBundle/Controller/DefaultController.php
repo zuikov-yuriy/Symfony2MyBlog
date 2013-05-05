@@ -7,6 +7,9 @@ use Vizitka\MainBundle\Helper\Help;
 use Vizitka\MainBundle\Helper\Tree;
 
 
+use Vizitka\MainBundle\Entity\Category;
+use Vizitka\MainBundle\Entity\Product;
+
 class DefaultController extends Controller {
 
     public function __construct() {
@@ -15,6 +18,42 @@ class DefaultController extends Controller {
 
     public function indexAction($page = null) {  
  
+        
+        
+        
+        
+//        
+//        $category = new Category();
+//        $category->setName('Main Products');
+//
+//        $product = new Product();
+//        $product->setName('Foo');
+//        $product->setPrice(19.99);
+//        $product->setDescription(0000000000);
+//        // Связывает этот продукт с категорией
+//        $product->setCategory($category);
+//
+//        $em = $this->getDoctrine()->getEntityManager();
+//        $em->persist($category);
+//        $em->persist($product);
+//        $em->flush();
+
+//            $category = $this->getDoctrine()
+//                             ->getRepository('VizitkaMainBundle:Category')
+//                             ->findAll();
+//            
+//            
+//           foreach ($category as $cat){
+//               $p[] = $cat->getName();
+//              foreach ($cat->getProducts() as $prod){
+//                   $p[] = $prod->getName(); 
+//              }
+//              $array[]=$p;
+//           }
+//
+//           var_dump($array);
+
+        
         $repository = $this->getDoctrine()->getRepository('VizitkaMainBundle:Pages');
         $items = $repository->findAll();
         

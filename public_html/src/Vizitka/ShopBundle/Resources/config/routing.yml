@@ -15,7 +15,7 @@ shop_products_page:
     pattern:  /shop/admin/products/{page}/
     defaults: { _controller: VizitkaShopBundle:Admin:products }
     
-shop_add_products:
+shop_add_product:
     pattern:  /shop/admin/add_product/
     defaults: { _controller: VizitkaShopBundle:Admin:add_product }
 

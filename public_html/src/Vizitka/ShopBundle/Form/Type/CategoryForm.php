@@ -49,9 +49,6 @@ class CategoryForm extends AbstractType {
                                             'attr' => array("class" => "url_form_category"),
                                             'label_attr' => array('class' => 'url_label_category')));    
         
-        $builder->add('image', 'text', array('label' => 'Изображение',
-                                            'attr' => array("class" => "url_form_category"),
-                                            'label_attr' => array('class' => 'url_label_category'))); 
         
         $builder->add('visible', 'checkbox', array('label' => 'Активно',
                                                    'required'  => false, 

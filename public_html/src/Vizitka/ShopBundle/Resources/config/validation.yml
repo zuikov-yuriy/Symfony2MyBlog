@@ -1,0 +1,10 @@
+Vizitka\ShopBundle\Entity\ProductsShop:
+    properties:
+        name:
+            - NotBlank: ~
+            - Length:
+                 min: 5
+        url:
+            - NotBlank: ~
+            - Length:
+                 min: 5                
